@@ -14,6 +14,7 @@ import { ContentComponent } from './layouts/content/content.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
+import { JwtInterceptorService } from './services/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { MainComponent } from './pages/main/main.component';
     FormsModule
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
     { provide: 'APIURL', useValue: environment.APIURL },
+    { provide: 'TOKENNAME', useValue: environment.TOKENNAME },
   ],
   bootstrap: [AppComponent]
 })
