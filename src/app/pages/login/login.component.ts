@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵresolveBody } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    document.body.className = 'hold-transition login-page';
   }
 
 }

@@ -10,6 +10,7 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    document.body.className = 'hold-transition skin-green sidebar-mini';
   }
 
 }
