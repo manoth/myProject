@@ -22,6 +22,7 @@
     "@auth0/angular-jwt": "^4.0.0",
     "admin-lte": "^2.4.15",
     "rxjs": "~6.5.4",
+    "sweetalert2": "^9.7.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
