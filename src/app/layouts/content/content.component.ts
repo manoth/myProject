@@ -12,6 +12,7 @@ export class ContentComponent implements OnInit {
 
   public equ = new Equipment();
   public equipment: any;
+  public edit: boolean = false;
   public equName = [
     'Computer', 'Printer', 'Scaner'
   ];
@@ -49,6 +50,7 @@ export class ContentComponent implements OnInit {
   }
 
   onCancel() {
+    this.edit = false;
     $('#modal-add-equipment').modal('hide');
     this.equ = new Equipment();
     this.errCode = false;
@@ -62,7 +64,7 @@ export class ContentComponent implements OnInit {
         Swal.fire({
           position: 'top-end',
           title: 'ยินดีด้วย !',
-          text: 'คุณลบข้อมูลครุภัณฑ์สำเร็จแล้ว.',
+          text: 'คุณเพิ่มข้อมูลสำเร็จแล้ว.',
           icon: 'success',
           showConfirmButton: false,
           timer: 1500,
@@ -80,6 +82,12 @@ export class ContentComponent implements OnInit {
         allowOutsideClick: false
       });
     }
+  }
+
+  onEdit(equipm: any) {
+    this.edit = true;
+    this.equ = equipm;
+    $('#modal-add-equipment').modal({ backdrop: 'static', keyboard: false });
   }
 
 }

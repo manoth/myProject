@@ -14,16 +14,16 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">ระบบพัสดุ</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body no-padding">
                         <div class="pull-right">
-                            <button class="btn btn-sm btn-success" data-toggle="control-sidebar" data-toggle="modal"
+                            <button class="btn btn-sm btn-success" data-toggle="modal"
                                 data-target="#modal-add-equipment" data-backdrop="static">
                                 <i class="ace-icon fa fa-plus"></i>
                                 เพิ่มพัสดุ
                             </button>
                         </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
                         <table class="table table-condensed">
                             <thead>
                                 <tr>
@@ -46,7 +46,7 @@
                                     <td>{{ e.username }}</td>
                                     <td>{{ e.userid }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-xs">
+                                        <button (click)="onEdit(e)" type="button" class="btn btn-info btn-xs">
                                             <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                         </button>
                                     </td>
@@ -75,17 +75,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form enctype="multipart/form-data" class="form-horizontal" (ngSubmit)="onSubmit()">
-                <!-- <div class="widget-box-overlay">
-                    <i class="ace-icon loading-xx loading-icon fa fa-spinner fa-pulse fa-3x fa-fw white"
-                        style="top: 50%;"></i>
-                </div> -->
                 <div class="modal-header bg-blue">
                     <button (click)="onCancel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h2 class="modal-title center green">
                         <i class="fa fa-plus" aria-hidden="true"></i>
-                        เพิ่มพัสดุ
+                        {{ (edit)?'แก้ไข':'เพิ่ม' }}พัสดุ
                     </h2>
                 </div>
                 <div class="modal-body">
@@ -126,7 +122,7 @@
                                             วันที่ซื้อ:
                                         </label>
                                         <label class="col-sm-7 block clearfix">
-                                            <input [(ngModel)]="equ.date_add" type="text" class="form-control"
+                                            <input [(ngModel)]="equ.date_add" type="date" class="form-control"
                                                 name="date_add" id="date_add" placeholder="YYYY-MM-DD"
                                                 (blur)="onDateAdd(equ.date_add)" (keyup)="onDateAdd(equ.date_add)" />
                                             <span class="help-block col-xs-12 col-sm-reset inline"
@@ -159,7 +155,7 @@
                     <fieldset class="col-xs-6 col-sm-6 col-md-6">
                         <button type="submit" class="pull-left btn btn-sm btn-primary">
                             <i class="ace-icon fa fa-floppy-o" aria-hidden="true"></i>
-                            <span class="bigger-110">บันทึก</span>
+                            <span class="bigger-110">{{ (edit)?'แก้ไข':'บันทึก' }}</span>
                         </button>
                     </fieldset>
                 </div>
