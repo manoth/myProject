@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.main.post('login', this.login).then((res: any) => {
+      console.log(res);
       if (res.ok) {
-        // console.log(res);
         localStorage.setItem(this.tokenName, res.token);
         this.router.navigate(['/index']);
       } else {

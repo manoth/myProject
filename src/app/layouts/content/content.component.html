@@ -3,22 +3,56 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Version 2.0</small>
+            ระบบพัสดุ
+            <small>Version 1.0</small>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-        </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
-
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
-                    ปปปป
+                    <div class="box-header">
+                        <h3 class="box-title">ระบบพัสดุ</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>ระบบพัสดุ</th>
+                                    <th>ชื่อพัสดุ</th>
+                                    <th>วันที่ซื้อ</th>
+                                    <th>ผู้รับผิดชอบ</th>
+                                    <th>ผู้บันทึก</th>
+                                    <th>แก้ไข</th>
+                                    <th>ลบ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let e of equipment; let i=index">
+                                    <td>{{ i+1 }}</td>
+                                    <td>{{ e.code }}</td>
+                                    <td>{{ e.name }}</td>
+                                    <td>{{ e.date_add }}</td>
+                                    <td>{{ e.username }}</td>
+                                    <td>{{ e.userid }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-xs">
+                                            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-xs">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
             </div>

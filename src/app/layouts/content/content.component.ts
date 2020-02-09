@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-content',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  constructor() { }
+  public equipment: any;
+
+  constructor(
+    private main: MainService
+  ) { }
 
   ngOnInit(): void {
+    this.getEquipment();
+  }
+
+  getEquipment() {
+    this.main.get('equipment').then((res: any) => {
+      console.log(res);
+      this.equipment = res.data;
+    });
   }
 
 }
