@@ -90,6 +90,25 @@ export class ContentComponent implements OnInit {
     $('#modal-add-equipment').modal({ backdrop: 'static', keyboard: false });
   }
 
+  onDel(equipm: any) {
+    Swal.fire({
+      text: `คุณต้องการที่จะลบพัสดุหมายเลข ${equipm.code} ใช่หรือไม่?`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'ใช่',
+      cancelButtonText: 'ไม่ใช่',
+      reverseButtons: true,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.value) {
+        this.main.get('equipment/' + equipm.id).then((res: any) => {
+          this.getEquipment();
+          this.onCancel();
+        });
+      }
+    });
+  }
+
 }
 export class Equipment {
   code: string;
