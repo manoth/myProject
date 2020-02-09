@@ -18,8 +18,4 @@ export class SidebarComponent implements OnInit {
     this.decoded = this.main.decodeToken();
   }
 
-  logout() {
-    this.main.logout();
-  }
-
 }
